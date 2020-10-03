@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ISpaceMarine.hpp                                   :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/27 15:27:53 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:00:06 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/09/28 16:49:03 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/09/28 16:51:02 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "MiningBarge.hpp"
+#include "StripMiner.hpp"
+#include "DeepCoreMiner.hpp"
+#include "Comet.hpp"
+#include "Asteroid.hpp"
 
+int	main(void) {
 
-class ISpaceMarine {
+	MiningBarge	barge;
 
-public:
+	barge.equip(new DeepCoreMiner);
+	barge.equip(new StripMiner);
 
-	virtual ~ISpaceMarine() {}
+	barge.mine(new Comet);
+	barge.mine(new Asteroid);
 
-	virtual ISpaceMarine*	clone(void) const = 0;
-	virtual void			battleCry(void) const = 0;
-	virtual void			rangedAttack(void) const = 0;
-	virtual void			meleeAttack(void) const = 0;
-
-};
+	return 0;
+}

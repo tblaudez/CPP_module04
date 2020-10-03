@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ISpaceMarine.hpp                                   :+:    :+:            */
+/*   StripMiner.hpp                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/27 15:27:53 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:00:06 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/09/28 16:27:22 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/09/28 17:00:31 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 
-class ISpaceMarine {
+#include "IMiningLaser.hpp"
+
+#include <iostream>
+
+
+class StripMiner : public IMiningLaser {
 
 public:
 
-	virtual ~ISpaceMarine() {}
+	StripMiner();
+	StripMiner(StripMiner const& src);
+	StripMiner& operator=(StripMiner const& rhs);
+	~StripMiner();
 
-	virtual ISpaceMarine*	clone(void) const = 0;
-	virtual void			battleCry(void) const = 0;
-	virtual void			rangedAttack(void) const = 0;
-	virtual void			meleeAttack(void) const = 0;
+	virtual void	mine(IAsteroid* target);
 
 };
+
+std::ostream&	operator<<(std::ostream& o, StripMiner const& i);

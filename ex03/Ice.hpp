@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ISpaceMarine.hpp                                   :+:    :+:            */
+/*   Ice.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/27 15:27:53 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:00:06 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/09/28 13:41:35 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/09/28 15:13:41 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 
-class ISpaceMarine {
+#include "AMateria.hpp"
+
+#include <iostream>
+
+
+class Ice : public AMateria {
 
 public:
 
-	virtual ~ISpaceMarine() {}
+	Ice();
+	Ice(Ice const& src);
+	Ice&	operator=(Ice const& rhs);
+	~Ice();
 
-	virtual ISpaceMarine*	clone(void) const = 0;
-	virtual void			battleCry(void) const = 0;
-	virtual void			rangedAttack(void) const = 0;
-	virtual void			meleeAttack(void) const = 0;
+	virtual AMateria*	clone() const;
+	virtual void		use(ICharacter& target);
 
 };
+
+std::ostream&	operator<<(std::ostream& o, Ice const& i);

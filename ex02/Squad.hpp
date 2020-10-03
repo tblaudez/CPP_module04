@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/27 15:32:52 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/27 16:17:41 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/09/28 13:18:20 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 
 
-class Squad {
+class Squad : public ISquad {
 
 public:
 

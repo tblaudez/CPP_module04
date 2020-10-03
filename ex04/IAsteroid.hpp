@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ISpaceMarine.hpp                                   :+:    :+:            */
+/*   IAsteroid.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/27 15:27:53 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:00:06 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/09/28 16:29:26 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/09/28 17:01:59 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+ #pragma once
 
-#pragma once
+
+ #include <string>
 
 
-class ISpaceMarine {
+ class StripMiner;
+ class DeepCoreMiner;
 
-public:
 
-	virtual ~ISpaceMarine() {}
+ class IAsteroid {
 
-	virtual ISpaceMarine*	clone(void) const = 0;
-	virtual void			battleCry(void) const = 0;
-	virtual void			rangedAttack(void) const = 0;
-	virtual void			meleeAttack(void) const = 0;
+ public:
 
-};
+ 	virtual ~IAsteroid() {}
+
+	virtual std::string	beMined(StripMiner* miner) const = 0;
+	virtual std::string	beMined(DeepCoreMiner* miner) const = 0;
+	virtual std::string	getName() const = 0;
+
+ };

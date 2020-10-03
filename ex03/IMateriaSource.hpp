@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ISpaceMarine.hpp                                   :+:    :+:            */
+/*   IMateriaSource.hpp                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/27 15:27:53 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:00:06 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/09/28 14:28:23 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/09/28 15:21:08 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 
-class ISpaceMarine {
+#include "AMateria.hpp"
+
+
+class IMateriaSource {
 
 public:
 
-	virtual ~ISpaceMarine() {}
+	virtual ~IMateriaSource() {}
 
-	virtual ISpaceMarine*	clone(void) const = 0;
-	virtual void			battleCry(void) const = 0;
-	virtual void			rangedAttack(void) const = 0;
-	virtual void			meleeAttack(void) const = 0;
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const& type) = 0;
 
 };

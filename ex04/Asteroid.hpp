@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ISpaceMarine.hpp                                   :+:    :+:            */
+/*   Asteroid.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/27 15:27:53 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:00:06 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/09/28 16:36:03 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/09/28 17:04:51 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 
-class ISpaceMarine {
+#include "IAsteroid.hpp"
+
+#include <iostream>
+
+
+class Asteroid : public IAsteroid {
 
 public:
 
-	virtual ~ISpaceMarine() {}
+	Asteroid();
+	Asteroid(Asteroid const& src);
+	Asteroid& operator=(Asteroid const& rhs);
+	~Asteroid();
 
-	virtual ISpaceMarine*	clone(void) const = 0;
-	virtual void			battleCry(void) const = 0;
-	virtual void			rangedAttack(void) const = 0;
-	virtual void			meleeAttack(void) const = 0;
+	virtual std::string	beMined(StripMiner* miner) const;
+	virtual std::string	beMined(DeepCoreMiner* miner) const;
+	virtual std::string	getName() const;
 
 };
+
+std::ostream&	operator<<(std::ostream& o, Asteroid const& i);
