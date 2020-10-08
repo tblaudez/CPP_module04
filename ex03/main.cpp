@@ -5,29 +5,40 @@
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/25 16:47:13 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/10/08 14:55:41 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/10/08 14:49:39 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/10/08 14:53:42 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sorcerer.hpp"
-#include "Victim.hpp"
-#include "Peon.hpp"
+#include "MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
-#include <iostream> // cout
+
+int main() {
+
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter*	me = new Character("Claude");
+	ICharacter*	bob = new Character("Bob");
+
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
 
 
-int	main(void) {
+	me->use(0, *bob);
+	me->use(1, *bob);
 
-	Sorcerer robert("Robert", "the Magnificent");
-
-	Victim jim("Jimmy");
-	Peon joe("Joe");
-
-	std::cout << robert << jim << joe;
-
-	robert.polymorph(jim);
-	robert.polymorph(joe);
+	delete bob;
+	delete me;
+	delete src;
 
 	return 0;
+
 }

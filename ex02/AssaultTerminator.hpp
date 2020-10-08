@@ -6,13 +6,14 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 13:06:56 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:07:52 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:59:00 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ISpaceMarine.hpp"
+#pragma once
 
-#include <iostream>
+
+#include "ISpaceMarine.hpp"
 
 
 class AssaultTerminator : public ISpaceMarine {
@@ -22,13 +23,11 @@ public:
 	AssaultTerminator();
 	AssaultTerminator(AssaultTerminator const& src);
 	AssaultTerminator&	operator=(AssaultTerminator const& rhs);
-	~AssaultTerminator();
+	virtual ~AssaultTerminator();
 
-	virtual ISpaceMarine*	clone(void) const;
-	virtual void			battleCry(void) const;
-	virtual void			rangedAttack(void) const;
-	virtual void			meleeAttack(void) const;
+	virtual ISpaceMarine*	clone() const;
+	virtual void			battleCry() const;
+	virtual void			rangedAttack() const;
+	virtual void			meleeAttack() const;
 
 };
-
-std::ostream&	operator<<(std::ostream& o, AssaultTerminator const& i);

@@ -6,26 +6,27 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 16:07:36 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:09:48 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:54:54 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+
 #include "Victim.hpp"
 
-#include <iostream>
-#include <string>
+#include <string> // duh..
+#include <ostream> // duh..
 
 
 class Peon : public Victim {
 
 public:
 
-	Peon(std::string name="Peon");
+	Peon(std::string const& name="Peon");
 	Peon(Peon const& src);
 	Peon& operator=(Peon const& rhs);
 	~Peon();
 
-	virtual void	getPolymorphed(void) const;
+	virtual void	getPolymorphed() const;
 };

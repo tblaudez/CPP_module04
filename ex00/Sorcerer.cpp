@@ -6,11 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 16:07:39 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:15:34 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:03:00 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
+
+#include <iostream> // cout
 
 
 Sorcerer::Sorcerer() : _name("default"), _title("default") {
@@ -18,8 +20,8 @@ Sorcerer::Sorcerer() : _name("default"), _title("default") {
 }
 
 
-Sorcerer::Sorcerer(std::string name, std::string title) : _name(name),
-_title(title) {
+Sorcerer::Sorcerer(std::string const& name, std::string const& title) :
+_name(name), _title(title) {
 
 	std::cout << this->_name << ", " << this->_title << ", is born !"
 	<< std::endl;
@@ -28,9 +30,8 @@ _title(title) {
 
 Sorcerer::Sorcerer(Sorcerer const& src) {
 
+	std::cout << src._name << ", " << src._title << ", is born !" << std::endl;
 	*this = src;
-	std::cout << this->_name << ", " << this->_title << ", is born !"
-	<< std::endl;
 }
 
 
@@ -61,13 +62,13 @@ std::ostream&	operator<<(std::ostream& o, Sorcerer const& i) {
 }
 
 
-std::string	Sorcerer::getName(void) const {
+std::string	Sorcerer::getName() const {
 
 	return this->_name;
 }
 
 
-std::string	Sorcerer::getTitle(void) const {
+std::string	Sorcerer::getTitle() const {
 
 	return this->_title;
 }

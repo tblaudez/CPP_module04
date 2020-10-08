@@ -6,11 +6,12 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/27 15:18:09 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/27 15:30:26 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:50:47 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 
 #include "ISpaceMarine.hpp"
 

@@ -6,11 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 17:31:27 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:46:47 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:16:10 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PlasmaRifle.hpp"
+
+#include <iostream> // cout
 
 
 PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {
@@ -39,14 +41,7 @@ PlasmaRifle::~PlasmaRifle() {
 }
 
 
-std::ostream&	operator<<(std::ostream& o, PlasmaRifle const& i) {
-
-	o << "Plasma Rifle : " << i.getName() << std::endl;
-	return o;
-}
-
-
-void	PlasmaRifle::attack(void) const {
+void	PlasmaRifle::attack() const {
 
 	std::cout << "* piouuu piouuu piouuu *" << std::endl;
 }

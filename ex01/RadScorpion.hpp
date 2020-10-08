@@ -6,15 +6,14 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 18:06:03 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 18:44:00 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:26:14 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Enemy.hpp"
 
-#include <iostream>
+#include "Enemy.hpp"
 
 
 class RadScorpion : public Enemy {
@@ -27,5 +26,3 @@ public:
 	virtual ~RadScorpion();
 
 };
-
-std::ostream&	operator<<(std::ostream& o, RadScorpion const& i);

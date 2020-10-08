@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 13:31:22 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 15:38:03 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 13:54:47 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 #include "ICharacter.hpp"
 
-#include <iostream>
-#include <string>
+#include <string> // duh..
 
 
 class AMateria {
@@ -31,10 +30,13 @@ public:
 	std::string const&	getType() const;
 	unsigned int		getXP() const;
 
+	void				setXP(unsigned int XP);
+	void				setType(std::string const& type);
+
 	virtual AMateria*	clone() const = 0;
 	virtual void		use(ICharacter& target);
 
-protected:
+private:
 
 	std::string		_type;
 	unsigned int	_XP;

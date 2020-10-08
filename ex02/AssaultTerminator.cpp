@@ -6,14 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 13:07:58 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:19:09 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 13:23:20 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AssaultTerminator.hpp"
 
-
-#include <iostream>
+#include <iostream> // cout
 
 
 AssaultTerminator::AssaultTerminator() {
@@ -24,6 +23,7 @@ AssaultTerminator::AssaultTerminator() {
 
 AssaultTerminator::AssaultTerminator(AssaultTerminator const& src) {
 
+	std::cout << "* teleports from space *" << std::endl;
 	*this = src;
 }
 
@@ -44,33 +44,25 @@ AssaultTerminator::~AssaultTerminator() {
 }
 
 
-std::ostream&	operator<<(std::ostream& o, AssaultTerminator const& i) {
-
-	(void)i;
-	o << "AssaultTerminator, ready for battle" << std::endl;
-	return o;
-}
-
-
-ISpaceMarine*	AssaultTerminator::clone(void) const {
+ISpaceMarine*	AssaultTerminator::clone() const {
 
 	return new AssaultTerminator(*this);
 }
 
 
-void			AssaultTerminator::battleCry(void) const {
+void			AssaultTerminator::battleCry() const {
 
 	std::cout << "This code is unclean. PURIFY IT!" << std::endl;
 }
 
 
-void			AssaultTerminator::rangedAttack(void) const {
+void			AssaultTerminator::rangedAttack() const {
 
-	std::cout << " does nothing *" << std::endl;
+	std::cout << "* does nothing *" << std::endl;
 }
 
 
-void			AssaultTerminator::meleeAttack(void) const {
+void			AssaultTerminator::meleeAttack() const {
 
 	std::cout << "* attacks with chainfists *" << std::endl;
 }

@@ -6,14 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 13:56:22 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 14:02:52 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:49:18 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-
-#include <iostream>
+#include <iostream> // cout
 
 
 Cure::Cure() : AMateria("cure") {
@@ -21,17 +20,17 @@ Cure::Cure() : AMateria("cure") {
 }
 
 
-Cure::Cure(Cure const& src) : AMateria("cure") {
+Cure::Cure(Cure const& src) : AMateria(src) {
 
 	*this = src;
 }
 
 
-// Overwrite the AMateria operator=() to avoid copying the type
 Cure&	Cure::operator=(Cure const& rhs) {
 
+	// Override of the AMateria operator<< to avoid copying the type
 	if (this != &rhs) {
-		this->_XP = rhs._XP;
+		this->setXP(rhs.getXP());
 	}
 
 	return *this;
@@ -40,13 +39,6 @@ Cure&	Cure::operator=(Cure const& rhs) {
 
 Cure::~Cure() {
 
-}
-
-
-std::ostream&	operator<<(std::ostream& o, Cure const& i) {
-
-	o << "Cure Materia : " << i.getXP() << " XP points" << std::endl;
-	return o;
 }
 
 

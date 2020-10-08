@@ -6,27 +6,28 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 16:07:47 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:09:03 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:03:05 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
+
+#include <string> // duh..
+#include <ostream> // duh..
 
 
 class Victim {
 
 public:
 
-	Victim(std::string name="Victim");
+	Victim(std::string const& name="Victim");
 	Victim(Victim const& src);
 	Victim& operator=(Victim const& rhs);
 	~Victim();
 
-	std::string			getName(void) const;
-	virtual void		getPolymorphed(void) const;
+	std::string		getName() const;
+	virtual void	getPolymorphed() const;
 
 protected:
 

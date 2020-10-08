@@ -6,15 +6,14 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 18:00:29 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 18:44:08 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:24:35 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Enemy.hpp"
 
-#include <iostream>
+#include "Enemy.hpp"
 
 
 class SuperMutant : public Enemy {
@@ -29,5 +28,3 @@ public:
 	virtual void takeDamage(int damage);
 
 };
-
-std::ostream&	operator<<(std::ostream& o, SuperMutant const& i);

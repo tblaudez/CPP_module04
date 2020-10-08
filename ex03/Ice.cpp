@@ -6,14 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 13:42:47 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 15:39:09 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:57:19 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-
-#include <iostream>
+#include <iostream> // cout
 
 
 Ice::Ice() : AMateria("ice") {
@@ -21,32 +20,25 @@ Ice::Ice() : AMateria("ice") {
 }
 
 
-Ice::Ice(Ice const& src) : AMateria("ice") {
+Ice::Ice(Ice const& src) : AMateria(src) {
 
 	*this = src;
 }
 
 
-// Overwrite the AMateria operator=() to avoid copying the type
 Ice&	Ice::operator=(Ice const& rhs) {
 
+	// Override of the AMateria operator<< to avoid copying the type
 	if (this != &rhs) {
-		this->_XP = rhs._XP;
+		this->setXP(rhs.getXP());
 	}
-	
+
 	return *this;
 }
 
 
 Ice::~Ice() {
 
-}
-
-
-std::ostream&	operator<<(std::ostream& o, Ice const& i) {
-
-	o << "Ice Materia : " << i.getXP() << " XP points" << std::endl;
-	return o;
 }
 
 

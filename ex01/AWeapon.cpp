@@ -6,11 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 17:23:03 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:29:36 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:39:35 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AWeapon.hpp"
+
+#include <iostream> // cout
 
 
 AWeapon::AWeapon(std::string const& name, int apcost, int damage) :
@@ -42,26 +44,19 @@ AWeapon::~AWeapon() {
 }
 
 
-std::ostream&	operator<<(std::ostream& o, AWeapon const& i) {
-
-	o << "AWeapon : " << i.getName();
-	return o;
-}
-
-
-int	AWeapon::getApCost(void) const {
+int	AWeapon::getApCost() const {
 
 	return this->_apcost;
 }
 
 
-int	AWeapon::getDamage(void) const {
+int	AWeapon::getDamage() const {
 
 	return this->_damage;
 }
 
 
-std::string	AWeapon::getName(void) const {
+std::string	const& AWeapon::getName() const {
 
 	return this->_name;
 }

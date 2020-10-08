@@ -6,11 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 18:06:52 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 18:08:25 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:40:27 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RadScorpion.hpp"
+
+#include <iostream> // cout
 
 
 RadScorpion::RadScorpion() : Enemy(80, "RadScorpion") {
@@ -21,8 +23,8 @@ RadScorpion::RadScorpion() : Enemy(80, "RadScorpion") {
 
 RadScorpion::RadScorpion(RadScorpion const& src) {
 
-	*this = src;
 	std::cout << "* click click click *" << std::endl;
+	*this = src;
 }
 
 
@@ -39,11 +41,4 @@ RadScorpion&	RadScorpion::operator=(RadScorpion const& rhs) {
 RadScorpion::~RadScorpion() {
 
 	std::cout << "* SPROTCH *" << std::endl;
-}
-
-
-std::ostream&	operator<<(std::ostream& o, RadScorpion const& i) {
-
-	o << "RadScorpion : " << i.getType() << std::endl; 
-	return o;
 }

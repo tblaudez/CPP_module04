@@ -6,14 +6,11 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 14:33:09 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 16:17:13 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:37:57 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
-
-
-#include <iostream>
 
 
 MateriaSource::MateriaSource() : _materiaPool(new AMateria*[4]()) {
@@ -30,7 +27,13 @@ MateriaSource::MateriaSource(MateriaSource const& src) {
 MateriaSource&	MateriaSource::operator=(MateriaSource const& rhs) {
 
 	if (this != &rhs) {
-		std::copy(rhs._materiaPool, rhs._materiaPool + 4, this->_materiaPool);
+
+		// If Source is not empty, clear it
+		if (!this->_empty()) {
+			this->_clear();
+		}
+
+		memcpy(this->_materiaPool, rhs._materiaPool, sizeof(AMateria*) * 4);
 	}
 
 	return *this;
@@ -38,21 +41,15 @@ MateriaSource&	MateriaSource::operator=(MateriaSource const& rhs) {
 
 
 MateriaSource::~MateriaSource() {
+
+	this->_clear();
 	delete[] this->_materiaPool;
-}
-
-
-std::ostream&	operator<<(std::ostream& o, MateriaSource const& i) {
-
-	(void)i;
-	o << "MateriaSource" << std::endl;
-	return o;
 }
 
 
 void			MateriaSource::learnMateria(AMateria* materia) {
 
-	for (int i=0; i<4; i++) {
+	for (int i=0; i < 4; i++) {
 		if (this->_materiaPool[i] == NULL) {
 			this->_materiaPool[i] = materia;
 			return;
@@ -63,10 +60,32 @@ void			MateriaSource::learnMateria(AMateria* materia) {
 
 AMateria*		MateriaSource::createMateria(std::string const& type) {
 
-	for (int i=0; i<4; i++) {
+	for (int i=0; i < 4; i++) {
 		if (this->_materiaPool[i] != NULL && this->_materiaPool[i]->getType() == type) {
 			return this->_materiaPool[i]->clone();
 		}
 	}
+	
 	return NULL;
+}
+
+
+bool			MateriaSource::_empty() {
+
+	for (int i=0; i < 4; i++) {
+		if (this->_materiaPool != NULL) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
+void			MateriaSource::_clear() {
+
+	for (int i=0; i < 4; i++) {
+		delete this->_materiaPool[i];
+		this->_materiaPool[i] = NULL;
+	}
 }

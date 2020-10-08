@@ -5,29 +5,37 @@
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/25 16:47:13 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/10/08 14:55:41 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/10/08 13:14:53 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/10/08 13:43:29 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sorcerer.hpp"
-#include "Victim.hpp"
-#include "Peon.hpp"
-
-#include <iostream> // cout
+#include "Squad.hpp"
+#include "TacticalMarine.hpp"
+#include "AssaultTerminator.hpp"
 
 
-int	main(void) {
+int main() {
 
-	Sorcerer robert("Robert", "the Magnificent");
+	ISquad* vlc = new Squad;
 
-	Victim jim("Jimmy");
-	Peon joe("Joe");
+	for (int i=0; i < 50; i++) {
+		if (i % 2 == 0) {
+			vlc->push(new TacticalMarine);
+		}
+		else {
+			vlc->push(new AssaultTerminator);
+		}
+	}
 
-	std::cout << robert << jim << joe;
+	for (int i=0; i < vlc->getCount(); ++i) {
+		ISpaceMarine* cur = vlc->getUnit(i);
+		cur->battleCry();
+		cur->rangedAttack();
+		cur->meleeAttack();
+	}
 
-	robert.polymorph(jim);
-	robert.polymorph(joe);
+	delete vlc;
 
 	return 0;
 }

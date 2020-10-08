@@ -6,14 +6,14 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 17:49:44 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 18:43:52 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:20:23 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
+
+#include <string> // duh..
 
 
 class Enemy {
@@ -25,8 +25,8 @@ public:
 	Enemy& operator=(Enemy const& rhs);
 	virtual ~Enemy();
 
-	std::string	getType(void) const;
-	int			getHP(void) const;
+	std::string	const&	getType() const;
+	int					getHP() const;
 
 	virtual void	takeDamage(int damage);
 
@@ -34,6 +34,5 @@ protected:
 
 	int				_HP;
 	std::string		_type;
-};
 
-std::ostream&	operator<<(std::ostream& o, Enemy const& i);
+};

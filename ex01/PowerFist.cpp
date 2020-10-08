@@ -6,11 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 17:35:38 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:47:55 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 12:39:48 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PowerFist.hpp"
+
+#include <iostream> // cout
 
 
 PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50) {
@@ -39,14 +41,7 @@ PowerFist::~PowerFist() {
 }
 
 
-std::ostream&	operator<<(std::ostream& o, PowerFist const& i) {
-
-	o << "Power Fist : " << i.getName() << std::endl;
-	return o;
-}
-
-
-void	PowerFist::attack(void) const {
+void	PowerFist::attack() const {
 
 	std::cout << "* pschhh... SBAM! *" << std::endl;
 }

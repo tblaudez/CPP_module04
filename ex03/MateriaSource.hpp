@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 14:29:22 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 15:14:10 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:35:08 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 
-#include <iostream>
-
 
 class MateriaSource : public IMateriaSource {
 
@@ -25,7 +23,7 @@ public:
 
 	MateriaSource();
 	MateriaSource(MateriaSource const& src);
-	MateriaSource&	operator=(MateriaSource const& rhs);
+	MateriaSource& operator=(MateriaSource const& rhs);
 	~MateriaSource();
 
 	virtual void		learnMateria(AMateria* materia);
@@ -33,8 +31,9 @@ public:
 
 private:
 
+	bool		_empty();
+	void		_clear();
+
 	AMateria**	_materiaPool;
 
 };
-
-std::ostream&	operator<<(std::ostream& o, MateriaSource const& i);

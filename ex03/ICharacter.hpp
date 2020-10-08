@@ -6,17 +6,17 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 14:03:29 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 15:28:37 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:57:03 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 
-#include <string>
+#include <string> // duh..
 
 
-class AMateria; // Forward class declaration to avoid inclusion conflicts
+class AMateria; // Forward declaration
 
 
 class ICharacter {

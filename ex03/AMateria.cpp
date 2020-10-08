@@ -6,14 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 13:37:37 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 14:03:07 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:56:54 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-
-#include <iostream>
+#include <iostream> // cout
 
 
 AMateria::AMateria(std::string const& type) : _type(type), _XP(0) {
@@ -54,6 +53,16 @@ unsigned int		AMateria::getXP() const {
 	return this->_XP;
 }
 
+void				AMateria::setXP(unsigned int XP) {
+
+	this->_XP = XP;
+}
+
+
+void				AMateria::setType(std::string const& type) {
+
+	this->_type = type;
+}
 
 
 void				AMateria::use(ICharacter& target) {

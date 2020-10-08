@@ -6,14 +6,16 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 16:07:30 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:15:12 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:56:05 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Peon.hpp"
 
+#include <iostream> // cout
 
-Peon::Peon(std::string name) : Victim(name) {
+
+Peon::Peon(std::string const& name) : Victim(name) {
 
 	std::cout << "Zog zog." << std::endl;
 }
@@ -21,8 +23,8 @@ Peon::Peon(std::string name) : Victim(name) {
 
 Peon::Peon(Peon const& src) {
 
-	*this = src;
 	std::cout << "Zog zog." << std::endl;
+	*this = src;
 }
 
 

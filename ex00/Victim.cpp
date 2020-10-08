@@ -6,25 +6,27 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/25 16:07:44 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/25 17:15:29 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 14:55:47 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Victim.hpp"
 
+#include <iostream> // cout
 
-Victim::Victim(std::string name) : _name(name) {
 
-	std::cout << "Some random victim called " << this->_name
-	<< " just appeared!" << std::endl;
+Victim::Victim(std::string const& name) : _name(name) {
+
+	std::cout << "Some random victim called " << this->_name << " just appeared!"
+	<< std::endl;
 }
 
 
 Victim::Victim(Victim const& src) {
 
 	*this = src;
-	std::cout << "Some random victim called " << this->_name
-	<< " just appeared!" << std::endl;
+	std::cout << "Some random victim called " << src._name << " just appeared!"
+	<< std::endl;
 }
 
 
@@ -40,8 +42,8 @@ Victim&	Victim::operator=(Victim const& rhs) {
 
 Victim::~Victim() {
 
-	std::cout << "Victim " << this->_name
-	<< " just died for no apparent reason!" << std::endl;
+	std::cout << "Victim " << this->_name << " just died for no apparent reason!"
+	<< std::endl;
 }
 
 
@@ -53,13 +55,13 @@ std::ostream&	operator<<(std::ostream& o, Victim const& i) {
 }
 
 
-std::string	Victim::getName(void) const {
+std::string	Victim::getName() const {
 
 	return this->_name;
 }
 
 
-void		Victim::getPolymorphed(void) const {
+void		Victim::getPolymorphed() const {
 
 	std::cout << this->_name << " has been turned into a cute little sheep!"
 	<< std::endl;

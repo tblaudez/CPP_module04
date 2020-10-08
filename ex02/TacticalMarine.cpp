@@ -6,14 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 13:01:44 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 13:16:55 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/08 13:09:22 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "TacticalMarine.hpp"
 
-
-#include <iostream>
+#include <iostream> // cout
 
 
 TacticalMarine::TacticalMarine() {
@@ -24,6 +23,7 @@ TacticalMarine::TacticalMarine() {
 
 TacticalMarine::TacticalMarine(TacticalMarine const& src) {
 
+	std::cout << "Tactical Marine ready for battle!" << std::endl;
 	*this = src;
 }
 
@@ -44,34 +44,26 @@ TacticalMarine::~TacticalMarine() {
 }
 
 
-std::ostream&	operator<<(std::ostream& o, TacticalMarine const& i) {
-
-	(void)i;
-	o << "TacticalMarine, ready for action" << std::endl;
-	return o;
-}
-
-
-ISpaceMarine*	TacticalMarine::clone(void) const {
+ISpaceMarine*	TacticalMarine::clone() const {
 
 	return new TacticalMarine(*this);
 }
 
 
-void			TacticalMarine::battleCry(void) const {
+void			TacticalMarine::battleCry() const {
 
 	std::cout << "For the holy PLOT!" << std::endl;
 }
 
 
-void			TacticalMarine::rangedAttack(void) const {
+void			TacticalMarine::rangedAttack() const {
 
 
 	std::cout << "* attacks with a bolter *" << std::endl;
 }
 
 
-void			TacticalMarine::meleeAttack(void) const {
+void			TacticalMarine::meleeAttack() const {
 
 	std::cout << "* attacks with a chainsword *" << std::endl;
 }
