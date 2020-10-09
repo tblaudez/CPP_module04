@@ -6,13 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:41:42 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 17:04:03 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:36:13 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MiningBarge.hpp"
 
-#include <iostream>
+#include <cstring> // memcpy
 
 
 MiningBarge::MiningBarge() : _lasers(new IMiningLaser*[4]()) {
@@ -29,7 +29,13 @@ MiningBarge::MiningBarge(MiningBarge const& src) : _lasers(new IMiningLaser*[4](
 MiningBarge&	MiningBarge::operator=(MiningBarge const& rhs) {
 
 	if (this != &rhs) {
-		std::copy(rhs._lasers, rhs._lasers + 4, this->_lasers);
+
+		// If lasers are not empty, clear them first
+		if (!this->_empty()) {
+			this->_clear();
+		}
+
+		memcpy(this->_lasers, rhs._lasers, sizeof(IMiningLaser*) * 4);
 	}
 
 	return *this;
@@ -38,21 +44,14 @@ MiningBarge&	MiningBarge::operator=(MiningBarge const& rhs) {
 
 MiningBarge::~MiningBarge() {
 
+	this->_clear();
 	delete[] this->_lasers;
-}
-
-
-std::ostream&	operator<<(std::ostream& o, MiningBarge const& i) {
-
-	(void)i;
-	o << "MiningBarge" << std::endl;
-	return o;
 }
 
 
 void	MiningBarge::equip(IMiningLaser* laser) {
 
-	for (int i=0; i<4; i++) {
+	for (int i=0; i < 4; i++) {
 		if (this->_lasers[i] == NULL) {
 			this->_lasers[i] = laser;
 			return;
@@ -63,9 +62,30 @@ void	MiningBarge::equip(IMiningLaser* laser) {
 
 void	MiningBarge::mine(IAsteroid* target) const {
 
-	for (int i=0; i<4; i++) {
+	for (int i=0; i < 4; i++) {
 		if (this->_lasers[i] != NULL) {
 			this->_lasers[i]->mine(target);
 		}
 	}
+}
+
+
+void	MiningBarge::_clear() {
+
+	for (int i=0; i < 4; i++) {
+		delete this->_lasers[i];
+		this->_lasers[i] = NULL;
+	}
+}
+
+
+bool	MiningBarge::_empty() const {
+
+	for (int i=0; i < 4; i++) {
+		if (this->_lasers[i] != NULL) {
+			return false;
+		}
+	}
+
+	return true;
 }

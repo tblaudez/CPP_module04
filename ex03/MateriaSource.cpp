@@ -6,11 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 14:33:09 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/10/08 14:37:57 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:35:59 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+
+#include <cstring> // memcpy
 
 
 MateriaSource::MateriaSource() : _materiaPool(new AMateria*[4]()) {
@@ -65,7 +67,7 @@ AMateria*		MateriaSource::createMateria(std::string const& type) {
 			return this->_materiaPool[i]->clone();
 		}
 	}
-	
+
 	return NULL;
 }
 

@@ -6,17 +6,17 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:29:26 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 17:01:59 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:18:48 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
  #pragma once
 
 
- #include <string>
+ #include <string> // duh..
 
 
- class StripMiner;
- class DeepCoreMiner;
+ class StripMiner; // Forward declaration
+ class DeepCoreMiner; // Forward declaration
 
 
  class IAsteroid {

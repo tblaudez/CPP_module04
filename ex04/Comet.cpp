@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:33:35 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 16:57:35 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:25:03 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -39,13 +39,6 @@ Comet&	Comet::operator=(Comet const& rhs) {
 
 Comet::~Comet() {
 
-}
-
-
-std::ostream&	operator<<(std::ostream& o, Comet const& i) {
-
-	o << i.getName() << std::endl;
-	return o;
 }
 
 

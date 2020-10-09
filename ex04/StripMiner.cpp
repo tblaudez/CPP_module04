@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:27:37 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 16:58:09 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:17:45 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,6 @@ StripMiner&	StripMiner::operator=(StripMiner const& rhs) {
 
 StripMiner::~StripMiner() {
 
-}
-
-
-std::ostream&	operator<<(std::ostream& o, StripMiner const& i) {
-
-	(void)i;
-	o << "StripMiner" << std::endl;
-	return o;
 }
 
 

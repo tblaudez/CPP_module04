@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:36:50 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 16:57:09 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:21:46 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,6 @@ Asteroid&	Asteroid::operator=(Asteroid const& rhs) {
 
 Asteroid::~Asteroid() {
 
-}
-
-
-std::ostream&	operator<<(std::ostream& o, Asteroid const& i) {
-
-	o << i.getName() << std::endl;
-	return o;
 }
 
 

@@ -6,7 +6,7 @@
 #   By: tblaudez <tblaudez@student.codam.nl>         +#+                     #
 #                                                   +#+                      #
 #   Created: 2020/09/17 14:41:30 by tblaudez      #+#    #+#                 #
-#   Updated: 2020/10/08 14:39:31 by tblaudez      ########   odam.nl         #
+#   Updated: 2020/10/09 11:36:43 by tblaudez      ########   odam.nl         #
 #                                                                            #
 # ************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC= AMateria.cpp Ice.cpp Cure.cpp MateriaSource.cpp Character.cpp main.cpp
 OBJ= $(SRC:%.cpp=%.o)
 
 CC= /usr/bin/clang++
-CFLAGS= -Wall -Werror -Wextra -std=c++98 -g3
+CFLAGS= -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

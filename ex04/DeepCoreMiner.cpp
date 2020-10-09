@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:25:05 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 16:57:53 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:17:22 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,7 @@ DeepCoreMiner::~DeepCoreMiner() {
 }
 
 
-std::ostream&	operator<<(std::ostream& o, DeepCoreMiner const& i) {
-
-	(void)i;
-	o << "DeepCoreMiner" << std::endl;
-	return o;
-}
-
-
-void		DeepCoreMiner::mine(IAsteroid* target) {
+void	DeepCoreMiner::mine(IAsteroid* target) {
 
 	std::cout << "* mining deep... got " << target->beMined(this) << "! *"
 	<< std::endl;

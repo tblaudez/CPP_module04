@@ -6,13 +6,13 @@
 #   By: tblaudez <tblaudez@student.codam.nl>         +#+                     #
 #                                                   +#+                      #
 #   Created: 2020/09/17 14:41:30 by tblaudez      #+#    #+#                 #
-#   Updated: 2020/10/09 11:36:38 by tblaudez      ########   odam.nl         #
+#   Updated: 2020/10/09 11:36:48 by tblaudez      ########   odam.nl         #
 #                                                                            #
 # ************************************************************************** #
 
-NAME=warhammer
+NAME=deeprockgalactic
 
-SRC= Squad.cpp TacticalMarine.cpp AssaultTerminator.cpp main.cpp
+SRC= Asteroid.cpp Comet.cpp DeepCoreMiner.cpp StripMiner.cpp MiningBarge.cpp main.cpp
 OBJ= $(SRC:%.cpp=%.o)
 
 CC= /usr/bin/clang++

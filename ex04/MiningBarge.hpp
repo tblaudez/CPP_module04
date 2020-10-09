@@ -6,7 +6,7 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:39:52 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/09/28 16:44:52 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:30:02 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include "IMiningLaser.hpp"
 #include "IAsteroid.hpp"
-
-#include <iostream>
 
 
 class MiningBarge {
@@ -33,8 +31,9 @@ public:
 
 private:
 
+	bool			_empty() const;
+	void			_clear();
+
 	IMiningLaser**	_lasers;
 
 };
-
-std::ostream&	operator<<(std::ostream& o, MiningBarge const& i);
