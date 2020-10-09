@@ -6,13 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:27:37 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/10/09 11:17:45 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:42:58 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "StripMiner.hpp"
 
-#include <iostream>
+#include <iostream> // cout
 
 
 StripMiner::StripMiner() {

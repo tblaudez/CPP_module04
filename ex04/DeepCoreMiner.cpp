@@ -6,13 +6,13 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:25:05 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/10/09 11:17:22 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:43:03 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DeepCoreMiner.hpp"
 
-#include <iostream>
+#include <iostream> // cout
 
 
 DeepCoreMiner::DeepCoreMiner() {

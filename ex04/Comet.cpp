@@ -6,14 +6,12 @@
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/28 16:33:35 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/10/09 11:25:03 by tblaudez      ########   odam.nl         */
+/*   Updated: 2020/10/09 11:42:45 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 /* ************************************************************************** */
 
 #include "Comet.hpp"
-
-#include <iostream>
 
 
 Comet::Comet() {
