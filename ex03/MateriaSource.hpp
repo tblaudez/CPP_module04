@@ -21,19 +21,24 @@ class MateriaSource : public IMateriaSource {
 
 public:
 
-	MateriaSource();
-	MateriaSource(MateriaSource const& src);
-	MateriaSource& operator=(MateriaSource const& rhs);
-	~MateriaSource();
+    MateriaSource();
 
-	virtual void		learnMateria(AMateria* materia);
-	virtual AMateria*	createMateria(std::string const& type);
+    MateriaSource(MateriaSource const &src);
+
+    MateriaSource &operator=(MateriaSource const &rhs);
+
+    ~MateriaSource();
+
+    virtual void learnMateria(AMateria *materia);
+
+    virtual AMateria *createMateria(std::string const &type);
 
 private:
 
-	bool		_empty();
-	void		_clear();
+    bool _empty();
 
-	AMateria**	_materiaPool;
+    void _clear();
+
+    AMateria **_materiaPool;
 
 };

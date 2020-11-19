@@ -15,66 +15,62 @@
 #include <iostream> // cout
 
 
-Sorcerer::Sorcerer() : _name("default"), _title("default") {
+Sorcerer::Sorcerer() {
 
 }
 
 
-Sorcerer::Sorcerer(std::string const& name, std::string const& title) :
-_name(name), _title(title) {
+Sorcerer::Sorcerer(std::string const &name, std::string const &title) : _name(name), _title(title) {
 
-	std::cout << this->_name << ", " << this->_title << ", is born !"
-	<< std::endl;
+    std::cout << this->_name << ", " << this->_title << ", is born !" << std::endl;
 }
 
 
-Sorcerer::Sorcerer(Sorcerer const& src) {
+Sorcerer::Sorcerer(Sorcerer const &src) {
 
-	std::cout << src._name << ", " << src._title << ", is born !" << std::endl;
-	*this = src;
+    std::cout << src._name << ", " << src._title << ", is born !" << std::endl;
+    *this = src;
 }
 
 
-Sorcerer&	Sorcerer::operator=(Sorcerer const& rhs) {
+Sorcerer &Sorcerer::operator=(Sorcerer const &rhs) {
 
-	if (this != &rhs) {
-		this->_name = rhs._name;
-		this->_title = rhs._title;
-	}
+    if (this != &rhs) {
+        this->_name = rhs._name;
+        this->_title = rhs._title;
+    }
 
-	return *this;
+    return *this;
 }
 
 
 Sorcerer::~Sorcerer() {
 
-	std::cout << this->_name << ", " << this->_title << ", is dead."
-	<< " Consequences will never be the same!" << std::endl;
+    std::cout << this->_name << ", " << this->_title << ", is dead." << " Consequences will never be the same!"
+              << std::endl;
 }
 
 
-std::ostream&	operator<<(std::ostream& o, Sorcerer const& i) {
+std::ostream &operator<<(std::ostream &o, Sorcerer const &i) {
 
-	o << "I am " << i.getName() << ", " << i.getTitle()
-	<< ", and I like ponies!" << std::endl;;
-
-	return o;
+    o << "I am " << i.getName() << ", " << i.getTitle() << ", and I like ponies!" << std::endl;;
+    return o;
 }
 
 
-std::string	Sorcerer::getName() const {
+std::string Sorcerer::getName() const {
 
-	return this->_name;
+    return this->_name;
 }
 
 
-std::string	Sorcerer::getTitle() const {
+std::string Sorcerer::getTitle() const {
 
-	return this->_title;
+    return this->_title;
 }
 
 
-void		Sorcerer::polymorph(Victim const& target) const {
+void Sorcerer::polymorph(Victim const &target) const {
 
-	target.getPolymorphed();
+    target.getPolymorphed();
 }

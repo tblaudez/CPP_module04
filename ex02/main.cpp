@@ -17,25 +17,28 @@
 
 int main() {
 
-	ISquad* vlc = new Squad;
+    Squad *vlc = new Squad;
 
-	for (int i=0; i < 50; i++) {
-		if (i % 2 == 0) {
-			vlc->push(new TacticalMarine);
-		}
-		else {
-			vlc->push(new AssaultTerminator);
-		}
-	}
+    for (int i = 0; i < 62; i++) {
+        if (i % 2 == 0) {
+            vlc->push(new TacticalMarine);
+        } else {
+            vlc->push(new AssaultTerminator);
+        }
+    }
 
-	for (int i=0; i < vlc->getCount(); ++i) {
-		ISpaceMarine* cur = vlc->getUnit(i);
-		cur->battleCry();
-		cur->rangedAttack();
-		cur->meleeAttack();
-	}
+    Squad *firstLegion = new Squad;
+    *firstLegion = *vlc;
+    delete vlc;
 
-	delete vlc;
+    for (int i = 0; i < firstLegion->getCount(); ++i) {
+        ISpaceMarine *cur = firstLegion->getUnit(i);
+        cur->battleCry();
+        cur->rangedAttack();
+        cur->meleeAttack();
+    }
 
-	return 0;
+    delete firstLegion;
+
+    return 0;
 }

@@ -21,17 +21,21 @@ class Victim {
 
 public:
 
-	Victim(std::string const& name="Victim");
-	Victim(Victim const& src);
-	Victim& operator=(Victim const& rhs);
-	~Victim();
+    Victim(std::string const &name = "Victim");
 
-	std::string		getName() const;
-	virtual void	getPolymorphed() const;
+    Victim(Victim const &src);
+
+    Victim &operator=(Victim const &rhs);
+
+    virtual ~Victim();
+
+    std::string getName() const;
+
+    virtual void getPolymorphed() const;
 
 protected:
 
-	std::string	_name;
+    std::string _name;
 };
 
-std::ostream&	operator<<(std::ostream& o, Victim const& i);
+std::ostream &operator<<(std::ostream &os, Victim const &i);

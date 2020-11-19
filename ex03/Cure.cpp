@@ -20,20 +20,20 @@ Cure::Cure() : AMateria("cure") {
 }
 
 
-Cure::Cure(Cure const& src) : AMateria(src) {
+Cure::Cure(Cure const &src) : AMateria(src) {
 
-	*this = src;
+    *this = src;
 }
 
 
-Cure&	Cure::operator=(Cure const& rhs) {
+Cure &Cure::operator=(Cure const &rhs) {
 
-	// Override of the AMateria operator<< to avoid copying the type
-	if (this != &rhs) {
-		this->setXP(rhs.getXP());
-	}
+    // Override of the AMateria operator<< to avoid copying the type
+    if (this != &rhs) {
+        this->setXP(rhs.getXP());
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -42,14 +42,14 @@ Cure::~Cure() {
 }
 
 
-AMateria*	Cure::clone() const {
+AMateria *Cure::clone() const {
 
-	return new Cure(*this);
+    return new Cure(*this);
 }
 
 
-void		Cure::use(ICharacter& target) {
+void Cure::use(ICharacter &target) {
 
-	AMateria::use(target);
-	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+    AMateria::use(target);
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

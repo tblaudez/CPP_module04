@@ -16,17 +16,23 @@
 #include "Comet.hpp"
 #include "Asteroid.hpp"
 
-int	main(void) {
+int main() {
 
-	MiningBarge*	barge = new MiningBarge;
+    MiningBarge *barge = new MiningBarge;
 
-	barge->equip(new DeepCoreMiner);
+    barge->equip(new DeepCoreMiner);
 	barge->equip(new StripMiner);
+	barge->equip(new StripMiner);
+	barge->equip(new DeepCoreMiner);
 
-	barge->mine(new Comet);
-	barge->mine(new Asteroid);
-
+	MiningBarge *real_barge = new MiningBarge(*barge);
 	delete barge;
 
-	return 0;
+
+    real_barge->mine(new Comet);
+    real_barge->mine(new Asteroid);
+
+    delete real_barge;
+
+    return 0;
 }

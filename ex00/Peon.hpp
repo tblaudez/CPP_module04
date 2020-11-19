@@ -23,10 +23,15 @@ class Peon : public Victim {
 
 public:
 
-	Peon(std::string const& name="Peon");
-	Peon(Peon const& src);
-	Peon& operator=(Peon const& rhs);
-	~Peon();
+    Peon(std::string const &name = "Peon");
 
-	virtual void	getPolymorphed() const;
+    Peon(Peon const &src);
+
+    Peon &operator=(Peon const &rhs);
+
+    virtual ~Peon();
+
+    virtual void getPolymorphed() const;
 };
+
+std::ostream &operator<<(std::ostream &os, const Peon &i);

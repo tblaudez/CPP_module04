@@ -22,6 +22,8 @@ public:
 
 	virtual ~IMiningLaser() {}
 
-	virtual void	mine(IAsteroid* target) = 0;
+	virtual void mine(IAsteroid *target) = 0;
+
+	virtual IMiningLaser *clone() const = 0;
 
 };

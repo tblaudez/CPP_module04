@@ -21,19 +21,24 @@ class MiningBarge {
 
 public:
 
-	MiningBarge();
-	MiningBarge(MiningBarge const& src);
-	MiningBarge& operator=(MiningBarge const& rhs);
-	~MiningBarge();
+    MiningBarge();
 
-	void	equip(IMiningLaser* laser);
-	void	mine(IAsteroid* target) const;
+    MiningBarge(MiningBarge const &src);
+
+    MiningBarge &operator=(MiningBarge const &rhs);
+
+    ~MiningBarge();
+
+    void equip(IMiningLaser *laser);
+
+    void mine(IAsteroid *target) const;
 
 private:
 
-	bool			_empty() const;
-	void			_clear();
+    bool _empty() const;
 
-	IMiningLaser**	_lasers;
+    void _clear();
+
+    IMiningLaser **_lasers;
 
 };

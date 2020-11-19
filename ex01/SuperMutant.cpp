@@ -17,34 +17,34 @@
 
 SuperMutant::SuperMutant() : Enemy(170, "Super Mutant") {
 
-	std::cout << "Gaaah. Me want smash heads!" << std::endl;
+    std::cout << "Gaaah. Me want smash heads!" << std::endl;
 }
 
 
-SuperMutant::SuperMutant(SuperMutant const& src) {
+SuperMutant::SuperMutant(SuperMutant const &src) {
 
-	std::cout << "Gaaah. Me want smash heads!" << std::endl;
-	*this = src;
+    std::cout << "Gaaah. Me want smash heads!" << std::endl;
+    *this = src;
 }
 
 
-SuperMutant&	SuperMutant::operator=(SuperMutant const& rhs) {
+SuperMutant &SuperMutant::operator=(SuperMutant const &rhs) {
 
-	if (this != &rhs) {
-		Enemy::operator=(rhs);
-	}
+    if (this != &rhs) {
+        Enemy::operator=(rhs);
+    }
 
-	return *this;
+    return *this;
 }
 
 
 SuperMutant::~SuperMutant() {
 
-	std::cout << "Aaargh..." << std::endl;
+    std::cout << "Aaargh..." << std::endl;
 }
 
 
-void	SuperMutant::takeDamage(int damage) {
+void SuperMutant::takeDamage(int damage) {
 
-	Enemy::takeDamage(damage - 3);
+    Enemy::takeDamage(damage - 3);
 }

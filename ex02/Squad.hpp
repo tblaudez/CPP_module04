@@ -20,23 +20,30 @@ class Squad : public ISquad {
 
 public:
 
-	Squad();
-	Squad(Squad const& src);
-	Squad& operator=(Squad const& rhs);
-	virtual ~Squad();
+    Squad();
 
-	virtual int				getCount() const;
-	virtual	ISpaceMarine*	getUnit(int index) const;
-	virtual int				push(ISpaceMarine* unit);
+    Squad(Squad const &src);
+
+    Squad &operator=(Squad const &rhs);
+
+    virtual ~Squad();
+
+    virtual int getCount() const;
+
+    virtual ISpaceMarine *getUnit(int index) const;
+
+    virtual int push(ISpaceMarine *unit);
 
 private:
 
-	bool			_isAlreadyInSquad(ISpaceMarine* unit) const;
-	void			_enlargeArray(int new_ceiling);
-	void			_clear();
+    bool _isAlreadyInSquad(ISpaceMarine *unit) const;
 
-	int				_ceiling;
-	int				_count;
-	ISpaceMarine**	_units;
+    void _enlargeArray(int new_ceiling);
+
+    void _clear();
+
+    int _ceiling;
+    int _count;
+    ISpaceMarine **_units;
 
 };

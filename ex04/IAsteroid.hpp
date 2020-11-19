@@ -9,24 +9,26 @@
 /*   Updated: 2020/10/09 11:18:48 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
- #pragma once
+#pragma once
 
 
- #include <string> // duh..
+#include <string> // duh..
 
 
- class StripMiner; // Forward declaration
- class DeepCoreMiner; // Forward declaration
+class StripMiner; // Forward declaration
+class DeepCoreMiner; // Forward declaration
 
 
- class IAsteroid {
+class IAsteroid {
 
- public:
+public:
 
- 	virtual ~IAsteroid() {}
+    virtual ~IAsteroid() {}
 
-	virtual std::string	beMined(StripMiner* miner) const = 0;
-	virtual std::string	beMined(DeepCoreMiner* miner) const = 0;
-	virtual std::string	getName() const = 0;
+    virtual std::string beMined(StripMiner *miner) const = 0;
 
- };
+    virtual std::string beMined(DeepCoreMiner *miner) const = 0;
+
+    virtual std::string getName() const = 0;
+
+};

@@ -22,23 +22,29 @@ class AMateria {
 
 public:
 
-	AMateria(std::string const& type);
-	AMateria(AMateria const& src);
-	AMateria& operator=(AMateria const& rhs);
-	virtual ~AMateria();
+    AMateria(std::string const &type);
 
-	std::string const&	getType() const;
-	unsigned int		getXP() const;
+    AMateria(AMateria const &src);
 
-	void				setXP(unsigned int XP);
-	void				setType(std::string const& type);
+    AMateria &operator=(AMateria const &rhs);
 
-	virtual AMateria*	clone() const = 0;
-	virtual void		use(ICharacter& target);
+    virtual ~AMateria();
+
+    std::string const &getType() const;
+
+    unsigned int getXP() const;
+
+    void setXP(unsigned int XP);
+
+    void setType(std::string const &type);
+
+    virtual AMateria *clone() const = 0;
+
+    virtual void use(ICharacter &target);
 
 private:
 
-	std::string		_type;
-	unsigned int	_XP;
+    std::string _type;
+    unsigned int _experience_points;
 
 };

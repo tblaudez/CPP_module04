@@ -21,21 +21,28 @@ class Character : public ICharacter {
 
 public:
 
-	Character(std::string name="Cloud");
-	Character(Character const& src);
-	Character&	operator=(Character const& rhs);
-	virtual ~Character();
+    Character(const std::string& name = "Cloud");
 
-	virtual std::string const&	getName() const;
-	virtual void				equip(AMateria* m);
-	virtual void				unequip(int idx);
-	virtual void				use(int idx, ICharacter& target);
+    Character(Character const &src);
+
+    Character &operator=(Character const &rhs);
+
+    virtual ~Character();
+
+    virtual std::string const &getName() const;
+
+    virtual void equip(AMateria *materia);
+
+    virtual void unequip(int idx);
+
+    virtual void use(int idx, ICharacter &target);
 
 private:
 
-	void		_clear();
-	bool		_characterHasEquipedMateria() const;
+    void _clear();
 
-	std::string	_name;
-	AMateria**	_inventory;
+    bool _characterHasEquipedMateria() const;
+
+    std::string _name;
+    AMateria **_inventory;
 };

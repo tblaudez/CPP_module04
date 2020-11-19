@@ -21,10 +21,15 @@ class StripMiner : public IMiningLaser {
 public:
 
 	StripMiner();
-	StripMiner(StripMiner const& src);
-	StripMiner& operator=(StripMiner const& rhs);
+
+	StripMiner(StripMiner const &src);
+
+	StripMiner &operator=(StripMiner const &rhs);
+
 	virtual ~StripMiner();
 
-	virtual void	mine(IAsteroid* target);
+	virtual void mine(IAsteroid *target);
+
+	virtual IMiningLaser *clone() const;
 
 };

@@ -17,53 +17,53 @@
 
 TacticalMarine::TacticalMarine() {
 
-	std::cout << "Tactical Marine ready for battle!" << std::endl;
+    std::cout << "Tactical Marine ready for battle!" << std::endl;
 }
 
 
-TacticalMarine::TacticalMarine(TacticalMarine const& src) {
+TacticalMarine::TacticalMarine(TacticalMarine const &src) {
 
-	std::cout << "Tactical Marine ready for battle!" << std::endl;
-	*this = src;
+    std::cout << "Tactical Marine ready for battle!" << std::endl;
+    *this = src;
 }
 
 
-TacticalMarine&	TacticalMarine::operator=(TacticalMarine const& rhs) {
+TacticalMarine &TacticalMarine::operator=(TacticalMarine const &rhs) {
 
-	if (this != &rhs) {
-		/* Do things */
-	}
+    if (this != &rhs) {
+        /* Do things */
+    }
 
-	return *this;
+    return *this;
 }
 
 
 TacticalMarine::~TacticalMarine() {
 
-	std::cout << "Aaargh..." << std::endl;
+    std::cout << "Aaargh..." << std::endl;
 }
 
 
-ISpaceMarine*	TacticalMarine::clone() const {
+ISpaceMarine *TacticalMarine::clone() const {
 
-	return new TacticalMarine(*this);
+    return new TacticalMarine(*this);
 }
 
 
-void			TacticalMarine::battleCry() const {
+void TacticalMarine::battleCry() const {
 
-	std::cout << "For the holy PLOT!" << std::endl;
+    std::cout << "For the holy PLOT!" << std::endl;
 }
 
 
-void			TacticalMarine::rangedAttack() const {
+void TacticalMarine::rangedAttack() const {
 
 
-	std::cout << "* attacks with a bolter *" << std::endl;
+    std::cout << "* attacks with a bolter *" << std::endl;
 }
 
 
-void			TacticalMarine::meleeAttack() const {
+void TacticalMarine::meleeAttack() const {
 
-	std::cout << "* attacks with a chainsword *" << std::endl;
+    std::cout << "* attacks with a chainsword *" << std::endl;
 }

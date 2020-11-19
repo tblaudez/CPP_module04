@@ -15,25 +15,25 @@
 #include <iostream> // cout
 
 
-AMateria::AMateria(std::string const& type) : _type(type), _XP(0) {
+AMateria::AMateria(std::string const &type) : _type(type), _experience_points(0) {
 
 }
 
 
-AMateria::AMateria(AMateria const& src) {
+AMateria::AMateria(AMateria const &src) : _experience_points(0) {
 
-	*this = src;
+    *this = src;
 }
 
 
-AMateria&	AMateria::operator=(AMateria const& rhs) {
+AMateria &AMateria::operator=(AMateria const &rhs) {
 
-	if (this != &rhs) {
-		this->_XP = rhs._XP;
-		this->_type = rhs._type;
-	}
+    if (this != &rhs) {
+        this->_experience_points = rhs._experience_points;
+        this->_type = rhs._type;
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -42,31 +42,30 @@ AMateria::~AMateria() {
 }
 
 
-std::string const&	AMateria::getType() const {
+std::string const &AMateria::getType() const {
 
-	return this->_type;
+    return this->_type;
 }
 
 
-unsigned int		AMateria::getXP() const {
+unsigned int AMateria::getXP() const {
 
-	return this->_XP;
+    return this->_experience_points;
 }
 
-void				AMateria::setXP(unsigned int XP) {
+void AMateria::setXP(unsigned int XP) {
 
-	this->_XP = XP;
-}
-
-
-void				AMateria::setType(std::string const& type) {
-
-	this->_type = type;
+    this->_experience_points = XP;
 }
 
 
-void				AMateria::use(ICharacter& target) {
+void AMateria::setType(std::string const &type) {
 
-	(void)target;
-	this->_XP += 10;
+    this->_type = type;
+}
+
+
+void AMateria::use(ICharacter &) {
+
+    this->_experience_points += 10;
 }

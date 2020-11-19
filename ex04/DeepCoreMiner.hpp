@@ -20,11 +20,16 @@ class DeepCoreMiner : public IMiningLaser {
 
 public:
 
-	DeepCoreMiner();
-	DeepCoreMiner(DeepCoreMiner const& src);
-	DeepCoreMiner& operator=(DeepCoreMiner const& rhs);
-	virtual ~DeepCoreMiner();
+    DeepCoreMiner();
 
-	virtual void	mine(IAsteroid* target);
+    DeepCoreMiner(DeepCoreMiner const &src);
+
+    DeepCoreMiner &operator=(DeepCoreMiner const &rhs);
+
+    virtual ~DeepCoreMiner();
+
+    virtual void mine(IAsteroid *target);
+
+    virtual IMiningLaser *clone() const;
 
 };

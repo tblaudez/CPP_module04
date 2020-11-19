@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Peasant.hpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: tblaudez <tblaudez@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/25 16:47:13 by tblaudez      #+#    #+#                 */
-/*   Updated: 2020/10/08 14:55:41 by tblaudez      ########   odam.nl         */
+/*   Created: 2020/11/18 13:14:23 by tblaudez      #+#    #+#                 */
+/*   Updated: 2020/11/18 13:14:23 by tblaudez      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sorcerer.hpp"
+#pragma once
+
+
 #include "Victim.hpp"
-#include "Peon.hpp"
-#include "Peasant.hpp"
 
-#include <iostream> // cout
+#include <string>
+#include <ostream>
 
 
-int main() {
+class Peasant : public Victim {
 
-    Sorcerer robert("Robert", "the Magnificent");
+public:
+    Peasant(const std::string &name = "Peasant");
 
-    Victim jim("Jimmy");
-    Peon joe("Joe");
-    Peasant jeremy("Jeremy");
+    Peasant(const Peasant &src);
 
-    std::cout << robert << jim << joe << jeremy;
+    Peasant &operator=(const Peasant &rhs);
 
-    robert.polymorph(jim);
-    robert.polymorph(joe);
-    robert.polymorph(jeremy);
+    virtual ~Peasant();
 
-    return 0;
-}
+    virtual void getPolymorphed() const;
+};
+
+std::ostream &operator<<(std::ostream &os, const Peasant &i);

@@ -20,11 +20,14 @@ class SuperMutant : public Enemy {
 
 public:
 
-	SuperMutant();
-	SuperMutant(SuperMutant const& src);
-	SuperMutant& operator=(SuperMutant const& rhs);
-	virtual ~SuperMutant();
+    SuperMutant();
 
-	virtual void takeDamage(int damage);
+    SuperMutant(SuperMutant const &src);
+
+    SuperMutant &operator=(SuperMutant const &rhs);
+
+    virtual ~SuperMutant();
+
+    virtual void takeDamage(int damage);
 
 };

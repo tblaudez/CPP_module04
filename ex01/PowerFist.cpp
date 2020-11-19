@@ -20,19 +20,19 @@ PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50) {
 }
 
 
-PowerFist::PowerFist(PowerFist const& src) {
+PowerFist::PowerFist(PowerFist const &src) {
 
-	*this = src;
+    *this = src;
 }
 
 
-PowerFist&	PowerFist::operator=(PowerFist const& rhs) {
+PowerFist &PowerFist::operator=(PowerFist const &rhs) {
 
-	if (this != &rhs) {
-		AWeapon::operator=(rhs);
-	}
+    if (this != &rhs) {
+        AWeapon::operator=(rhs);
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -41,7 +41,7 @@ PowerFist::~PowerFist() {
 }
 
 
-void	PowerFist::attack() const {
+void PowerFist::attack() const {
 
-	std::cout << "* pschhh... SBAM! *" << std::endl;
+    std::cout << "* pschhh... SBAM! *" << std::endl;
 }

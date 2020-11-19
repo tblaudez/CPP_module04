@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 #include "Ice.hpp"
@@ -18,27 +19,40 @@
 
 int main() {
 
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+    MateriaSource *src = new MateriaSource;
+    src->learnMateria(new Ice);
+    src->learnMateria(new Cure);
 
-	ICharacter*	me = new Character("Claude");
-	ICharacter*	bob = new Character("Bob");
+    std::cout << "----------" << std::endl;
 
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+    MateriaSource *real_source = new MateriaSource;
+    *real_source = *src;
+    delete src;
 
+    std::cout << "----------" << std::endl;
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+    ICharacter *me = new Character("Claude");
+    ICharacter *bob = new Character("Dummy");
 
-	delete bob;
-	delete me;
-	delete src;
+    std::cout << "----------" << std::endl;
 
-	return 0;
+    AMateria *tmp;
+    tmp = real_source->createMateria("ice");
+    me->equip(tmp);
+    tmp = real_source->createMateria("cure");
+    me->equip(tmp);
+
+    std::cout << "----------" << std::endl;
+
+    me->use(0, *bob);
+    me->use(1, *bob);
+
+    std::cout << "----------" << std::endl;
+
+    delete bob;
+    delete me;
+    delete real_source;
+
+    return 0;
 
 }

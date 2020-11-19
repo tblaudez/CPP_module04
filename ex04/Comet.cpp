@@ -19,19 +19,19 @@ Comet::Comet() {
 }
 
 
-Comet::Comet(Comet const& src) {
+Comet::Comet(Comet const &src) {
 
-	*this = src;
+    *this = src;
 }
 
 
-Comet&	Comet::operator=(Comet const& rhs) {
+Comet &Comet::operator=(Comet const &rhs) {
 
-	if (this != &rhs) {
-		/* Do things */
-	}
+    if (this != &rhs) {
+        /* Do things */
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -40,21 +40,16 @@ Comet::~Comet() {
 }
 
 
-std::string	Comet::beMined(StripMiner* miner) const {
-
-	(void)miner;
-	return "Tartarite";
+std::string Comet::beMined(StripMiner *) const {
+    return "Tartarite";
 }
 
 
-std::string	Comet::beMined(DeepCoreMiner* miner) const {
-
-	(void)miner;
-	return "Meium";
+std::string Comet::beMined(DeepCoreMiner *) const {
+    return "Meium";
 }
 
 
-std::string	Comet::getName() const {
-
-	return "Comet";
+std::string Comet::getName() const {
+    return "Comet";
 }

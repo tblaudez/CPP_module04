@@ -18,19 +18,19 @@ Asteroid::Asteroid() {
 }
 
 
-Asteroid::Asteroid(Asteroid const& src) {
+Asteroid::Asteroid(Asteroid const &src) {
 
-	*this = src;
+    *this = src;
 }
 
 
-Asteroid&	Asteroid::operator=(Asteroid const& rhs) {
+Asteroid &Asteroid::operator=(Asteroid const &rhs) {
 
-	if (this != &rhs) {
-		/* Do things */
-	}
+    if (this != &rhs) {
+        /* Do things */
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -39,21 +39,16 @@ Asteroid::~Asteroid() {
 }
 
 
-std::string	Asteroid::beMined(StripMiner* miner) const {
-
-	(void)miner;
-	return "Flavium";
+std::string Asteroid::beMined(StripMiner *) const {
+    return "Flavium";
 }
 
 
-std::string	Asteroid::beMined(DeepCoreMiner* miner) const {
-
-	(void)miner;
-	return "Dragonite";
+std::string Asteroid::beMined(DeepCoreMiner *) const {
+    return "Dragonite";
 }
 
 
-std::string	Asteroid::getName() const {
-
-	return "Asteroid";
+std::string Asteroid::getName() const {
+    return "Asteroid";
 }

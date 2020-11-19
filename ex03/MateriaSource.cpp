@@ -12,82 +12,90 @@
 
 #include "MateriaSource.hpp"
 
-#include <cstring> // memcpy
+#include <iostream>
 
 
-MateriaSource::MateriaSource() : _materiaPool(new AMateria*[4]()) {
+MateriaSource::MateriaSource() : _materiaPool(new AMateria *[4]()) {
 
+    std::cout << "A Materia Source Arise" << std::endl;
 }
 
 
-MateriaSource::MateriaSource(MateriaSource const& src) {
+MateriaSource::MateriaSource(MateriaSource const &src) : _materiaPool(new AMateria *[4]()) {
 
-	*this = src;
+    std::cout << "A Materia Source Arise" << std::endl;
+    *this = src;
 }
 
 
-MateriaSource&	MateriaSource::operator=(MateriaSource const& rhs) {
+MateriaSource &MateriaSource::operator=(MateriaSource const &rhs) {
 
-	if (this != &rhs) {
+    if (this != &rhs) {
 
-		// If Source is not empty, clear it
-		if (!this->_empty()) {
-			this->_clear();
-		}
+        // If Source is not empty, clear it
+        if (!this->_empty()) {
+            this->_clear();
+        }
 
-		memcpy(this->_materiaPool, rhs._materiaPool, sizeof(AMateria*) * 4);
-	}
+        for (int i = 0; i < 4; i++) {
+            AMateria *materia = rhs._materiaPool[i];
+            this->_materiaPool[i] = materia ? materia->clone() : NULL;
+        }
+    }
 
-	return *this;
+    return *this;
 }
 
 
 MateriaSource::~MateriaSource() {
 
-	this->_clear();
-	delete[] this->_materiaPool;
+    std::cout << "A Materia Source darkens" << std::endl;
+    this->_clear();
+    delete[] this->_materiaPool;
 }
 
 
-void			MateriaSource::learnMateria(AMateria* materia) {
+void MateriaSource::learnMateria(AMateria *materia) {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_materiaPool[i] == NULL) {
-			this->_materiaPool[i] = materia;
-			return;
-		}
-	}
+    for (int i = 0; i < 4; i++) {
+        if (this->_materiaPool[i] == NULL) {
+            std::cout << "Materia Source learnt " << materia->getType() << " materia" << std::endl;
+            this->_materiaPool[i] = materia;
+            return;
+        }
+    }
 }
 
 
-AMateria*		MateriaSource::createMateria(std::string const& type) {
+AMateria *MateriaSource::createMateria(std::string const &type) {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_materiaPool[i] != NULL && this->_materiaPool[i]->getType() == type) {
-			return this->_materiaPool[i]->clone();
-		}
-	}
+    for (int i = 0; i < 4; i++) {
+        if (this->_materiaPool[i] != NULL && this->_materiaPool[i]->getType() == type) {
+            std::cout << "Materia Source created " << type << " materia" << std::endl;
+            return this->_materiaPool[i]->clone();
+        }
+    }
 
-	return NULL;
+    return NULL;
 }
 
 
-bool			MateriaSource::_empty() {
+bool MateriaSource::_empty() {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_materiaPool != NULL) {
-			return true;
-		}
-	}
+    for (int i = 0; i < 4; i++) {
+        if (this->_materiaPool != NULL) {
+            return true;
+        }
+    }
 
-	return false;
+    return false;
 }
 
 
-void			MateriaSource::_clear() {
+void MateriaSource::_clear() {
 
-	for (int i=0; i < 4; i++) {
-		delete this->_materiaPool[i];
-		this->_materiaPool[i] = NULL;
-	}
+    for (int i = 0; i < 4; i++) {
+        delete this->_materiaPool[i];
+        this->_materiaPool[i] = NULL;
+    }
 }

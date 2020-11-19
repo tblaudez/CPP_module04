@@ -20,13 +20,18 @@ class Asteroid : public IAsteroid {
 
 public:
 
-	Asteroid();
-	Asteroid(Asteroid const& src);
-	Asteroid& operator=(Asteroid const& rhs);
-	virtual ~Asteroid();
+    Asteroid();
 
-	virtual std::string	beMined(StripMiner* miner) const;
-	virtual std::string	beMined(DeepCoreMiner* miner) const;
-	virtual std::string	getName() const;
+    Asteroid(Asteroid const &src);
+
+    Asteroid &operator=(Asteroid const &rhs);
+
+    virtual ~Asteroid();
+
+    virtual std::string beMined(StripMiner *miner) const;
+
+    virtual std::string beMined(DeepCoreMiner *miner) const;
+
+    virtual std::string getName() const;
 
 };

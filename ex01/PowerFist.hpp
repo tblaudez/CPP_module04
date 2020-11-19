@@ -20,11 +20,14 @@ class PowerFist : public AWeapon {
 
 public:
 
-	PowerFist();
-	PowerFist(PowerFist const& src);
-	PowerFist& operator=(PowerFist const& rhs);
-	virtual ~PowerFist();
+    PowerFist();
 
-	virtual void	attack() const;
+    PowerFist(PowerFist const &src);
+
+    PowerFist &operator=(PowerFist const &rhs);
+
+    virtual ~PowerFist();
+
+    virtual void attack() const;
 
 };

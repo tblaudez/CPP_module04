@@ -15,77 +15,81 @@
 #include <cstring> // memcpy
 
 
-MiningBarge::MiningBarge() : _lasers(new IMiningLaser*[4]()) {
+MiningBarge::MiningBarge() : _lasers(new IMiningLaser *[4]()) {
 
 }
 
 
-MiningBarge::MiningBarge(MiningBarge const& src) : _lasers(new IMiningLaser*[4]()) {
+MiningBarge::MiningBarge(MiningBarge const &src) : _lasers(new IMiningLaser *[4]()) {
 
-	*this = src;
+    *this = src;
 }
 
 
-MiningBarge&	MiningBarge::operator=(MiningBarge const& rhs) {
+MiningBarge &MiningBarge::operator=(MiningBarge const &rhs) {
 
-	if (this != &rhs) {
+    if (this != &rhs) {
 
-		// If lasers are not empty, clear them first
-		if (!this->_empty()) {
-			this->_clear();
-		}
+        // If lasers are not empty, clear them first
+        if (!this->_empty()) {
+            this->_clear();
+        }
 
-		memcpy(this->_lasers, rhs._lasers, sizeof(IMiningLaser*) * 4);
-	}
+        // Deep copy the lasers
+        for (int i = 0; i < 4; i++) {
+        	IMiningLaser *laser = rhs._lasers[i];
+			this->_lasers[i] = laser ? laser->clone() : NULL;
+        }
+    }
 
-	return *this;
+    return *this;
 }
 
 
 MiningBarge::~MiningBarge() {
 
-	this->_clear();
-	delete[] this->_lasers;
+    this->_clear();
+    delete[] this->_lasers;
 }
 
 
-void	MiningBarge::equip(IMiningLaser* laser) {
+void MiningBarge::equip(IMiningLaser *laser) {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_lasers[i] == NULL) {
-			this->_lasers[i] = laser;
-			return;
-		}
-	}
+    for (int i = 0; i < 4; i++) {
+        if (this->_lasers[i] == NULL) {
+            this->_lasers[i] = laser;
+            return;
+        }
+    }
 }
 
 
-void	MiningBarge::mine(IAsteroid* target) const {
+void MiningBarge::mine(IAsteroid *target) const {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_lasers[i] != NULL) {
-			this->_lasers[i]->mine(target);
-		}
-	}
+    for (int i = 0; i < 4; i++) {
+        if (this->_lasers[i] != NULL) {
+            this->_lasers[i]->mine(target);
+        }
+    }
 }
 
 
-void	MiningBarge::_clear() {
+void MiningBarge::_clear() {
 
-	for (int i=0; i < 4; i++) {
-		delete this->_lasers[i];
-		this->_lasers[i] = NULL;
-	}
+    for (int i = 0; i < 4; i++) {
+        delete this->_lasers[i];
+        this->_lasers[i] = NULL;
+    }
 }
 
 
-bool	MiningBarge::_empty() const {
+bool MiningBarge::_empty() const {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_lasers[i] != NULL) {
-			return false;
-		}
-	}
+    for (int i = 0; i < 4; i++) {
+        if (this->_lasers[i] != NULL) {
+            return false;
+        }
+    }
 
-	return true;
+    return true;
 }

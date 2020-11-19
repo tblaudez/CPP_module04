@@ -15,27 +15,27 @@
 #include <iostream> // cout
 
 
-AWeapon::AWeapon(std::string const& name, int apcost, int damage) :
-_name(name), _apcost(apcost), _damage(damage) {
+AWeapon::AWeapon(std::string const &name, int apcost, int damage) :
+        _name(name), _apcost(apcost), _damage(damage) {
 
 }
 
 
-AWeapon::AWeapon(AWeapon const& src) {
+AWeapon::AWeapon(AWeapon const &src) {
 
-	*this = src;
+    *this = src;
 }
 
 
-AWeapon&	AWeapon::operator=(AWeapon const& rhs) {
+AWeapon &AWeapon::operator=(AWeapon const &rhs) {
 
-	if (this != &rhs) {
-		this->_name = rhs._name;
-		this->_damage = rhs._damage;
-		this->_apcost = rhs._apcost;
-	}
+    if (this != &rhs) {
+        this->_name = rhs._name;
+        this->_damage = rhs._damage;
+        this->_apcost = rhs._apcost;
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -44,19 +44,19 @@ AWeapon::~AWeapon() {
 }
 
 
-int	AWeapon::getApCost() const {
+int AWeapon::getApCost() const {
 
-	return this->_apcost;
+    return this->_apcost;
 }
 
 
-int	AWeapon::getDamage() const {
+int AWeapon::getDamage() const {
 
-	return this->_damage;
+    return this->_damage;
 }
 
 
-std::string	const& AWeapon::getName() const {
+std::string const &AWeapon::getName() const {
 
-	return this->_name;
+    return this->_name;
 }

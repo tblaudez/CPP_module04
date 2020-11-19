@@ -20,12 +20,16 @@ class Ice : public AMateria {
 
 public:
 
-	Ice();
-	Ice(Ice const& src);
-	Ice& operator=(Ice const& rhs);
-	virtual ~Ice();
+    Ice();
 
-	virtual AMateria*	clone() const;
-	virtual void		use(ICharacter& target);
+    Ice(Ice const &src);
+
+    Ice &operator=(Ice const &rhs);
+
+    virtual ~Ice();
+
+    virtual AMateria *clone() const;
+
+    virtual void use(ICharacter &target);
 
 };

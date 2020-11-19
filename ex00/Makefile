@@ -12,7 +12,7 @@
 
 NAME=sorcerer
 
-SRC= Sorcerer.cpp Victim.cpp Peon.cpp main.cpp
+SRC= Sorcerer.cpp Victim.cpp Peon.cpp main.cpp Peasant.cpp
 OBJ= $(SRC:%.cpp=%.o)
 
 CC= /usr/bin/clang++

@@ -20,13 +20,18 @@ class Comet : public IAsteroid {
 
 public:
 
-	Comet();
-	Comet(Comet const& src);
-	Comet& operator=(Comet const& rhs);
-	virtual ~Comet();
+    Comet();
 
-	virtual std::string	beMined(StripMiner* miner) const;
-	virtual std::string	beMined(DeepCoreMiner* miner) const;
-	virtual std::string	getName() const;
+    Comet(Comet const &src);
+
+    Comet &operator=(Comet const &rhs);
+
+    virtual ~Comet();
+
+    virtual std::string beMined(StripMiner *miner) const;
+
+    virtual std::string beMined(DeepCoreMiner *miner) const;
+
+    virtual std::string getName() const;
 
 };

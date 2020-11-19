@@ -15,97 +15,102 @@
 #include <iostream> // cout
 
 
-Character::Character(std::string name) : _name(name), _inventory(new AMateria*[4]()) {
+Character::Character(const std::string &name) : _name(name), _inventory(new AMateria *[4]()) {
 
+    std::cout << "Hey, the name's " << name << std::endl;
 }
 
 
-Character::Character(Character const& src) {
+Character::Character(Character const &src) : _inventory(new AMateria *[4]()) {
 
-	*this = src;
+    std::cout << "Hey, the name's " << src._name << std::endl;
+    *this = src;
 }
 
 
-Character&	Character::operator=(Character const& rhs) {
+Character &Character::operator=(Character const &rhs) {
 
-	if (this != &rhs) {
-		this->_name = rhs._name;
+    if (this != &rhs) {
+        this->_name = rhs._name;
 
-		// If Character inventory is not empty, clear it
-		if (this->_characterHasEquipedMateria()) {
-			this->_clear();
-		}
+        // If Character inventory is not empty, clear it
+        if (this->_characterHasEquipedMateria()) {
+            this->_clear();
+        }
 
-		for (int i=0; i < 4; i++) {
-			if (rhs._inventory[i] != NULL) {
-				this->_inventory[i] = rhs._inventory[i]->clone();
-			}
-		}
-	}
+        for (int i = 0; i < 4; i++) {
+            if (rhs._inventory[i] != NULL) {
+                this->_inventory[i] = rhs._inventory[i]->clone();
+            }
+        }
+    }
 
-	return *this;
+    return *this;
 }
 
 
 Character::~Character() {
 
-	this->_clear();
-	delete[] this->_inventory;
+    std::cout << "Urgh.. " << this->_name << " died." << std::endl;
+    this->_clear();
+    delete[] this->_inventory;
 }
 
 
-std::string const&	Character::getName() const {
+std::string const &Character::getName() const {
 
-	return this->_name;
+    return this->_name;
 }
 
 
-void				Character::equip(AMateria* m) {
+void Character::equip(AMateria *materia) {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_inventory[i] == NULL) {
-			this->_inventory[i] = m;
-			return;
-		}
-	}
+    for (int i = 0; i < 4; i++) {
+        if (this->_inventory[i] == NULL) {
+            this->_inventory[i] = materia;
+            return;
+        }
+    }
 }
 
 
-void				Character::unequip(int idx) {
+void Character::unequip(int idx) {
 
-	if (idx < 0 || idx >= 4) {
-		return;
-	}
+    if (idx < 0 || idx >= 4) {
+        return;
+    }
 
-	this->_inventory[idx] = NULL;
+    this->_inventory[idx] = NULL;
 }
 
 
-void				Character::use(int idx, ICharacter& target) {
+void Character::use(int idx, ICharacter &target) {
 
-	if (idx < 0 || idx >= 4 || this->_inventory[idx] == NULL) {
-		return;
-	}
+    if (idx < 0 || idx >= 4 || this->_inventory[idx] == NULL) {
+        return;
+    }
 
-	this->_inventory[idx]->use(target);
+    std::cout << this->_name << " uses " << this->_inventory[idx]->getType() << " materia on " << target.getName()
+              << std::endl;
+    this->_inventory[idx]->use(target);
 }
 
 
-void				Character::_clear() {
+void Character::_clear() {
 
-	for (int i=0; i < 4; i++) {
-		delete this->_inventory[i];
-		this->_inventory[i] = NULL;
-	}
+    for (int i = 0; i < 4; i++) {
+        delete this->_inventory[i];
+        this->_inventory[i] = NULL;
+    }
 }
 
 
-bool				Character::_characterHasEquipedMateria() const {
+bool Character::_characterHasEquipedMateria() const {
 
-	for (int i=0; i < 4; i++) {
-		if (this->_inventory[i] != NULL) {
-			return true;
-		}
-	}
-	return false;
+    for (int i = 0; i < 4; i++) {
+        if (this->_inventory[i] != NULL) {
+            return true;
+        }
+    }
+    return false;
 }

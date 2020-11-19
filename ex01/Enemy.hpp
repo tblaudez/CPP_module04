@@ -20,19 +20,23 @@ class Enemy {
 
 public:
 
-	Enemy(int hp=0, std::string const& type="default");
-	Enemy(Enemy const& src);
-	Enemy& operator=(Enemy const& rhs);
-	virtual ~Enemy();
+    Enemy(int hp = 0, std::string const &type = "default");
 
-	std::string	const&	getType() const;
-	int					getHP() const;
+    Enemy(Enemy const &src);
 
-	virtual void	takeDamage(int damage);
+    Enemy &operator=(Enemy const &rhs);
+
+    virtual ~Enemy();
+
+    std::string const &getType() const;
+
+    int getHP() const;
+
+    virtual void takeDamage(int damage);
 
 protected:
 
-	int				_HP;
-	std::string		_type;
+    int _health;
+    std::string _type;
 
 };

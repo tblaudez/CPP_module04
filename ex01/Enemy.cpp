@@ -15,25 +15,25 @@
 #include <iostream> // cout
 
 
-Enemy::Enemy(int hp, std::string const& type) : _HP(hp), _type(type) {
+Enemy::Enemy(int hp, std::string const &type) : _health(hp), _type(type) {
 
 }
 
 
-Enemy::Enemy(Enemy const& src) {
+Enemy::Enemy(Enemy const &src) {
 
-	*this = src;
+    *this = src;
 }
 
 
-Enemy&	Enemy::operator=(Enemy const& rhs) {
+Enemy &Enemy::operator=(Enemy const &rhs) {
 
-	if (this != &rhs) {
-		this->_type = rhs._type;
-		this->_HP = rhs._HP;
-	}
+    if (this != &rhs) {
+        this->_type = rhs._type;
+        this->_health = rhs._health;
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -42,28 +42,31 @@ Enemy::~Enemy() {
 }
 
 
-std::string	const& Enemy::getType() const {
+std::string const &Enemy::getType() const {
 
-	return this->_type;
+    return this->_type;
 }
 
 
-int			Enemy::getHP() const {
+int Enemy::getHP() const {
 
-	return this->_HP;
+    return this->_health;
 }
 
 
-void	Enemy::takeDamage(int damage) {
+void Enemy::takeDamage(int damage) {
 
-	std::cout << this->_type << " is taking damage" << std::endl;
+    std::cout << this->_type << " took " << damage << " points of damage" << std::endl;
 
-	if (damage < 0) {
-		return;
-	}
+    if (damage < 0) {
+        return;
+    }
 
-	this->_HP -= damage;
-	if (this->_HP < 0) {
-		this->_HP = 0;
-	}
+    this->_health -= damage;
+    if (this->_health <= 0) {
+        std::cout << this->_type << " is dead" << std::endl;
+        delete this;
+    } else {
+        std::cout << this->_type << " now has " << this->_health << " HP" << std::endl;
+    }
 }

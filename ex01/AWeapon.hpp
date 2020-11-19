@@ -20,20 +20,26 @@ class AWeapon {
 
 public:
 
-	AWeapon(std::string const& name="Rusty Pistol", int apcost=0, int damage=0);
-	AWeapon(AWeapon const& src);
-	AWeapon& operator=(AWeapon const& rhs);
-	virtual ~AWeapon();
+    AWeapon(std::string const &name = "Rusty Pistol", int apcost = 0, int damage = 0);
 
-	std::string const&	getName() const;
-	int					getApCost() const;
-	int					getDamage() const;
-	virtual void		attack() const = 0;
+    AWeapon(AWeapon const &src);
+
+    AWeapon &operator=(AWeapon const &rhs);
+
+    virtual ~AWeapon();
+
+    std::string const &getName() const;
+
+    int getApCost() const;
+
+    int getDamage() const;
+
+    virtual void attack() const = 0;
 
 protected:
 
-	std::string		_name;
-	unsigned int	_apcost;
-	unsigned int	_damage;
-	
+    std::string _name;
+    unsigned int _apcost;
+    unsigned int _damage;
+
 };

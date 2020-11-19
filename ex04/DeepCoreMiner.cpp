@@ -20,13 +20,13 @@ DeepCoreMiner::DeepCoreMiner() {
 }
 
 
-DeepCoreMiner::DeepCoreMiner(DeepCoreMiner const& src) {
+DeepCoreMiner::DeepCoreMiner(DeepCoreMiner const &src) {
 
 	*this = src;
 }
 
 
-DeepCoreMiner&	DeepCoreMiner::operator=(DeepCoreMiner const& rhs) {
+DeepCoreMiner &DeepCoreMiner::operator=(DeepCoreMiner const &rhs) {
 
 	if (this != &rhs) {
 		/* Do things */
@@ -41,8 +41,11 @@ DeepCoreMiner::~DeepCoreMiner() {
 }
 
 
-void	DeepCoreMiner::mine(IAsteroid* target) {
+void DeepCoreMiner::mine(IAsteroid *target) {
 
-	std::cout << "* mining deep... got " << target->beMined(this) << "! *"
-	<< std::endl;
+	std::cout << "* mining deep... got " << target->beMined(this) << "! *" << std::endl;
+}
+
+IMiningLaser *DeepCoreMiner::clone() const {
+	return new DeepCoreMiner(*this);
 }

@@ -19,43 +19,46 @@
 #include <iostream> // cout
 
 
-int main(void) {
+int main() {
 
-	Character*	me = new Character("Henry");
-	AWeapon*	pr = new PlasmaRifle();
-	AWeapon*	pf = new PowerFist();
+    Character *character = new Character("Henry");
+    Enemy *superMutant = new SuperMutant;
+    Enemy *radScorpion = new RadScorpion;
 
-	Enemy*		a = new SuperMutant();
-	Enemy*		b = new RadScorpion();
+    std::cout << "----------" << std::endl;
 
-	std::cout << *me;
-	me->equip(pr);
-	std::cout << *me;
+    AWeapon *powerFist = new PowerFist;
+    character->equip(powerFist);
+    character->attack(superMutant);
+    character->attack(radScorpion);
 
-	me->attack(a);
-	std::cout << *me;
-	me->equip(pf);
-	std::cout << *me;
-	me->attack(a);
-	std::cout << *me;
+    std::cout << "----------" << std::endl;
 
-	me->attack(b);
-	std::cout << *me;
-	me->attack(b);
-	std::cout << *me;
+    AWeapon *plasmaRifle = new PlasmaRifle;
+    character->equip(plasmaRifle);
+    character->attack(superMutant);
+    character->attack(radScorpion);
+    character->attack(radScorpion);
 
-	delete me;
-	delete pr;
-	delete pf;
-	delete a;
+    std::cout << "----------" << std::endl;
+
+    character->attack(superMutant);
+    character->attack(superMutant);
+    character->attack(superMutant);
+
+    character->recoverHP();
+
+    std::cout << "----------" << std::endl;
+
+    delete powerFist;
+    delete plasmaRifle;
+    delete superMutant;
+    delete character;
+
+     /* If we delete radScorpion, we get a double-free because
+     it was already deleted when it's HP got to 0 */
+//    delete radScorpion;
 
 
-	/*
-	**	Deleting b causes a segfault since we deleted it in the attack()'s Character
-	**	member function. Which is stupid.
-	*/
-
-	// delete b;
-
-	return 0;
+    return 0;
 }

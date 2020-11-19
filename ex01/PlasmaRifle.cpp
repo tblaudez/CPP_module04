@@ -20,19 +20,19 @@ PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {
 }
 
 
-PlasmaRifle::PlasmaRifle(PlasmaRifle const& src) {
+PlasmaRifle::PlasmaRifle(PlasmaRifle const &src) {
 
-	*this = src;
+    *this = src;
 }
 
 
-PlasmaRifle&	PlasmaRifle::operator=(PlasmaRifle const& rhs) {
+PlasmaRifle &PlasmaRifle::operator=(PlasmaRifle const &rhs) {
 
-	if (this != &rhs) {
-		AWeapon::operator=(rhs);
-	}
+    if (this != &rhs) {
+        AWeapon::operator=(rhs);
+    }
 
-	return *this;
+    return *this;
 }
 
 
@@ -41,7 +41,7 @@ PlasmaRifle::~PlasmaRifle() {
 }
 
 
-void	PlasmaRifle::attack() const {
+void PlasmaRifle::attack() const {
 
-	std::cout << "* piouuu piouuu piouuu *" << std::endl;
+    std::cout << "* piouuu piouuu piouuu *" << std::endl;
 }

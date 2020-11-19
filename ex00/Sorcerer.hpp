@@ -23,22 +23,26 @@ class Sorcerer {
 
 public:
 
-	Sorcerer(std::string const& name, std::string const& title);
-	Sorcerer(Sorcerer const& src);
-	Sorcerer& operator=(Sorcerer const& rhs);
-	~Sorcerer();
+    Sorcerer(std::string const &name, std::string const &title);
 
-	std::string	getName() const;
-	std::string	getTitle() const;
+    Sorcerer(Sorcerer const &src);
 
-	void		polymorph(Victim const& target) const;
+    Sorcerer &operator=(Sorcerer const &rhs);
+
+    ~Sorcerer();
+
+    std::string getName() const;
+
+    std::string getTitle() const;
+
+    void polymorph(Victim const &target) const;
 
 private:
 
-	Sorcerer();
+    Sorcerer();
 
-	std::string	_name;
-	std::string	_title;
+    std::string _name;
+    std::string _title;
 };
 
-std::ostream&	operator<<(std::ostream& o, Sorcerer const& i);
+std::ostream &operator<<(std::ostream &o, Sorcerer const &i);

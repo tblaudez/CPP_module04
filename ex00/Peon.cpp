@@ -15,37 +15,42 @@
 #include <iostream> // cout
 
 
-Peon::Peon(std::string const& name) : Victim(name) {
+Peon::Peon(std::string const &name) : Victim(name) {
 
-	std::cout << "Zog zog." << std::endl;
+    std::cout << "Zog zog." << std::endl;
 }
 
 
-Peon::Peon(Peon const& src) {
+Peon::Peon(Peon const &src) : Victim(src) {
 
-	std::cout << "Zog zog." << std::endl;
-	*this = src;
+    std::cout << "Zog zog." << std::endl;
+    *this = src;
 }
 
 
-Peon&	Peon::operator=(Peon const& rhs) {
+Peon &Peon::operator=(Peon const &rhs) {
 
-	if (this != &rhs) {
-		Victim::operator=(rhs);
-	}
+    if (this != &rhs) {
+        Victim::operator=(rhs);
+    }
 
-	return *this;
+    return *this;
 }
 
 
 Peon::~Peon() {
 
-	std::cout << "Bleuark..." << std::endl;
+    std::cout << "Bleuark..." << std::endl;
 }
 
 
-void	Peon::getPolymorphed() const {
+void Peon::getPolymorphed() const {
 
-	std::cout << this->_name << " has been turned into a pink pony!"
-	<< std::endl;
+    std::cout << this->_name << " has been turned into a pink pony!"
+              << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &os, const Peon &i) {
+    os << "I'm " << i.getName() << " and I like pretty fireflies !" << std::endl;
+    return os;
 }
